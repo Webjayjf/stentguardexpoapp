@@ -11,7 +11,7 @@ const WelcomeScreen = () => {
       <Text style={styles.mediumHeading}>Your trusted stent tracking medical application</Text>
 
       {/* Image */}
-      <Image source={require('./11.png')} style={styles.image} />
+      <Image source={require('./logo.png')} style={styles.image} />
 
       {/* "Don't have an account" button */}
       <TouchableOpacity style={styles.outlinedButton}>
