@@ -1,74 +1,78 @@
-import * as React from 'react';
-import { Appearance, StatusBar } from 'react-native';
-import { ScreenOrientation } from 'expo';
-import AppLoading from 'expo-app-loading';
-import { device, func } from './src/constants';
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
-// main navigation stack
-import RootStack from './src/navigation/RootStack';
+const WelcomeScreen = () => {
+  return (
+    <View style={styles.container}>
+      {/* Big heading */}
+      <Text style={styles.bigHeading}>Welcome to STENT GUARD</Text>
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+      {/* Medium heading */}
+      <Text style={styles.mediumHeading}>Your trusted stent tracking medical application</Text>
 
-    this.state = {
-      isLoading: true,
-      theme: 'light'
-    };
+      {/* Image */}
+      <Image source={require('./11.png')} style={styles.image} />
 
-    // is iPad?
-    if (device.isPad) {
-      ScreenOrientation.allowAsync(
-        ScreenOrientation.Orientation.ALL_BUT_UPSIDE_DOWN
-      );
-    }
+      {/* "Don't have an account" button */}
+      <TouchableOpacity style={styles.outlinedButton}>
+        <Text style={styles.outlinedButtonText}>Don't have an account</Text>
+      </TouchableOpacity>
 
-    this.updateTheme = this.updateTheme.bind(this);
-  }
+      {/* "Have an account" button */}
+      <TouchableOpacity style={styles.filledButton}>
+        <Text style={styles.filledButtonText}>Have an account</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  componentDidMount() {
-    // get system preference
-    const colorScheme = Appearance.getColorScheme();
-    console.log('react-native::Appearance', colorScheme);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#ADD8E6', // Background color for the screen
+  },
+  bigHeading: {
+    fontSize: 32,
+    color: 'darkblue',
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  mediumHeading: {
+    fontSize: 18,
+    color: 'black',
+    marginBottom: 20,
+  },
+  image: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
+    marginBottom: 20,
+  },
+  outlinedButton: {
+    borderWidth: 1,
+    borderColor: 'black',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    borderRadius: 5,
+  },
+  outlinedButtonText: {
+    color: 'black',
+    fontSize: 16,
+  },
+  filledButton: {
+    backgroundColor: 'black',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  filledButtonText: {
+    color: 'white',
+    fontSize: 16,
+  },
+});
 
-    // if light or dark
-    if (colorScheme !== 'no-preference') {
-      this.setState({
-        theme: colorScheme
-      });
-    }
-  }
-
-  updateTheme(themeType) {
-    this.setState({
-      theme: themeType
-    });
-  }
-
-  render() {
-    const { isLoading, theme } = this.state;
-    const iOSStatusType = theme === 'light' ? 'dark-content' : 'light-content';
-
-    if (isLoading) {
-      return (
-        <AppLoading
-          onError={() => {
-            // console.warn
-          }}
-          onFinish={() => this.setState({ isLoading: false })}
-          startAsync={func.loadAssetsAsync}
-        />
-      );
-    }
-
-    return (
-      <React.Fragment>
-        <StatusBar barStyle={device.iOS ? iOSStatusType : 'light-content'} />
-
-        <RootStack theme={theme} />
-      </React.Fragment>
-    );
-  }
-}
-
-export default App;
+export default WelcomeScreen;
