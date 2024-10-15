@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 
 const WelcomeScreen = () => {
   return (
@@ -26,6 +26,8 @@ const WelcomeScreen = () => {
   );
 };
 
+const { width } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -39,11 +41,13 @@ const styles = StyleSheet.create({
     color: 'darkblue',
     fontWeight: 'bold',
     marginBottom: 20,
+    textAlign: 'center',
   },
   mediumHeading: {
     fontSize: 18,
     color: 'black',
     marginBottom: 20,
+    textAlign: 'center',
   },
   image: {
     width: 200,
@@ -52,22 +56,26 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   outlinedButton: {
+    width: width * 0.8,
     borderWidth: 1,
     borderColor: 'black',
     paddingVertical: 10,
     paddingHorizontal: 20,
     marginBottom: 20,
     borderRadius: 5,
+    alignItems: 'center',
   },
   outlinedButtonText: {
     color: 'black',
     fontSize: 16,
   },
   filledButton: {
+    width: width * 0.8,
     backgroundColor: 'black',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
+    alignItems: 'center',
   },
   filledButtonText: {
     color: 'white',
