@@ -1,19 +1,19 @@
 {
   "expo": {
-    "name": "Multi-screen Starter",
+    "name": "Stent Guard Expo App",
     "description": "react native multi screen application starter with expo",
     "scheme": "expomultiscreenstarter",
     "slug": "expomultiscreenstarter",
     "privacy": "public",
     "version": "0.0.2",
     "platforms": ["android", "ios", "web"],
-    "githubUrl": "https://github.com/calebnance/expo-multi-screen-starter",
+    "githubUrl": "https://github.com/Webjayjf/stentguardexpoapp",
     "orientation": "portrait",
     "primaryColor": "#2a2a2a",
-    "icon": "src/assets/icon.png",
+    "icon": "aa.png",
     "splash": {
       "backgroundColor": "#2a2a2a",
-      "image": "src/assets/splash.png",
+      "image": "aa.png",
       "resizeMode": "contain"
     },
     "updates": {
