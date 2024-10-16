@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { Button } from '../components';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const SubscriptionScreen = () => {
+const LandingScreen = () => {
   return (
     <View style={styles.container}>
       <Icon name="arrow-left" size={24} color="#FFFFFF" style={styles.backIcon} />
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SubscriptionScreen;
+export default LandingScreen;
