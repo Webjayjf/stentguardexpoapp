@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { Button } from '../components';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const LandingScreen = () => {
@@ -23,9 +22,9 @@ const LandingScreen = () => {
         You will be charged a yearly subscription fee of ₹2,999.00 immediately, without a trial period.
       </Text>
 
-      <Button mode="contained" style={styles.subscribeButton} onPress={() => { /* Add subscription logic */ }}>
-        Subscribe
-      </Button>
+      <TouchableOpacity style={styles.subscribeButton} onPress={() => navigation.navigate('Signin')} >
+        <Text style={styles.filledButtonText}>Have an account</Text>
+      </TouchableOpacity>
     </View>
   );
 };
