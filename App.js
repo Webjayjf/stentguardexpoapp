@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import WelcomeScreen from './WelcomeScreen';
-import LandingScreen from './LandingScreen'; // Assuming Landing.js exists in your project
+import WelcomeScreen from './Welcome';
+import LandingScreen from './Landiing'; // Assuming Landing.js exists in your project
+import FormScreen from './Signin';
 
 const Stack = createStackNavigator();
 
