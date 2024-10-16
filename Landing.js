@@ -11,7 +11,7 @@ const LandingScreen = () => {
 
       <View style={styles.imageContainer}>
         <Image 
-          source={require('../assets/learning_illustration.png')} 
+          source={require('./aa.png')} 
           style={styles.image}
           resizeMode="contain"
         />
