@@ -1,23 +1,31 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { Button } from '../components';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const LandingScreen = ({ navigation }) => {
+const SubscriptionScreen = () => {
   return (
     <View style={styles.container}>
-      {/* Advertising Block */}
-      <View style={styles.adBlock}>
-        <Text style={styles.adText}>Advertisement</Text>
+      <Icon name="arrow-left" size={24} color="#FFFFFF" style={styles.backIcon} />
+
+      <Text style={styles.title}>Build a learning habit you’ll love to keep</Text>
+
+      <View style={styles.imageContainer}>
+        <Image 
+          source={require('../assets/learning_illustration.png')} 
+          style={styles.image}
+          resizeMode="contain"
+        />
       </View>
 
-      {/* Headings */}
-      <Text style={styles.bigHeading}>Nice to meet you!</Text>
-      <Text style={styles.mediumHeading}>Choose from options to get started</Text>
+      <Text style={styles.price}>₹249.92 / month</Text>
+      <Text style={styles.description}>
+        You will be charged a yearly subscription fee of ₹2,999.00 immediately, without a trial period.
+      </Text>
 
-      {/* Buttons */}
-      <View style={styles.buttonContainer}>
-        <Button title="Physician" onPress={() => navigation.navigate('Physician')} />
-        <Button title="Patient" onPress={() => navigation.navigate('Patient')} />
-      </View>
+      <Button mode="contained" style={styles.subscribeButton} onPress={() => { /* Add subscription logic */ }}>
+        Subscribe
+      </Button>
     </View>
   );
 };
@@ -25,40 +33,46 @@ const LandingScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: '#0A3441',
+    paddingHorizontal: 20,
+    paddingTop: 40,
   },
-  adBlock: {
-    position: 'absolute',
-    top: 10,
-    width: '100%',
-    height: 50,
-    backgroundColor: '#d3d3d3',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  adText: {
-    fontSize: 16,
-    color: '#333',
-  },
-  bigHeading: {
-    fontSize: 30,
-    fontWeight: 'bold',
+  backIcon: {
     marginBottom: 20,
-    color: '#333',
   },
-  mediumHeading: {
-    fontSize: 20,
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  imageContainer: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 14,
+    color: '#FFFFFF',
+    textAlign: 'center',
     marginBottom: 30,
-    color: '#666',
   },
-  buttonContainer: {
-    width: '80%',
-    justifyContent: 'space-between',
-    height: 120,
+  subscribeButton: {
+    backgroundColor: '#4CAF50',
+    borderRadius: 5,
+    paddingVertical: 10,
   },
 });
 
-export default LandingScreen;
+export default SubscriptionScreen;
